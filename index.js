@@ -1,5 +1,16 @@
+// Declaring score variables and
+let humanScore = 0;
+let cpuScore = 0;
+let tie = 0;
+let roundCount = 0;
+
+//Welcome Message
+console.log("Welcome To The Rock, Paper, Scissors Game");
+
+// Function to get random number from CPU and converting it into a string of choice
 function getComputerChoice() {
   let choice = Math.random();
+  //dividing 0-1 in 3 parts and equalizing it to a string variable
   if (choice <= 1 / 3) {
     choice = "rock";
   } else if (choice <= 2 / 3 && choice > 1 / 3) {
@@ -10,8 +21,10 @@ function getComputerChoice() {
   return choice;
 }
 
+//Function to prompt user for input. resticted to only input of rock, paper and scissors but case-insensitive
+
 function getHumanChoice() {
-  input = prompt("Please Select 'rock', 'paper' or 'scissors'");
+  input = prompt("Enter either 'rock', 'paper' or 'scissors'");
   if (
     input.toLowerCase() !== "rock" &&
     input.toLowerCase() !== "paper" &&
@@ -21,11 +34,12 @@ function getHumanChoice() {
   } else return input.toLowerCase();
 }
 
+//Function to play a single round of RPS
 function playRound(humanChoice, cpuChoice) {
   humanChoice = getHumanChoice();
   cpuChoice = getComputerChoice();
   let result = "";
-
+  //comparing result from both parties
   if (
     (humanChoice === "rock" && cpuChoice === "scissors") ||
     (humanChoice === "paper" && cpuChoice === "rock") ||
@@ -40,23 +54,20 @@ function playRound(humanChoice, cpuChoice) {
     cpuScore++;
     result = "CPU won the Round!";
   }
-
+  //logging the result of the round in a statement
   console.log(`You chose ${humanChoice} and CPU chose ${cpuChoice}. ${result}`);
 
   return result;
 }
-let cpuScore = 0;
-let tie = 0;
-let humanScore = 0;
-let roundCount = 0;
-
+//function to play game. input the rounds you want to play
 function playGame(round = 5) {
   let result = "";
   for (let i = 0; i < round; i++) {
-    playRound();
+    console.log(`Round ${i + 1}`);
     roundCount++;
+    playRound();
   }
-
+  //game result conditions
   if (cpuScore > humanScore) {
     result = "CPU Won the Game";
   } else if (cpuScore < humanScore) {
@@ -64,9 +75,12 @@ function playGame(round = 5) {
   } else {
     result = "The Game is Draw";
   }
+
+  //final game results
   return console.log(
     `Humans scored ${humanScore} and CPU scored ${cpuScore} out of ${round} rounds. ${result}!!!`
   );
 }
 
-// playGame();
+//Invoke playGame function
+playGame();

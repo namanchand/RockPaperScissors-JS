@@ -1,3 +1,3 @@
 # RockPaperScissors-JS
 
-To play invoke playGame(no. of rounds) function in console.
+To play type playGame(no. of rounds) function in console of your broswer.
