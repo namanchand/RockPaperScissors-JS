@@ -2,9 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Test file</title>
+    <title>Welcome!</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <script src="index.js"></script>
+    <div id="section-welcome">
+      <p>Welcome to Rock! || Paper! || Scissor!</p>
+    </div>
+    <div id="section-total-score">
+      <div><p>Human's game wins</p></div>
+      <div class="button-start">
+        <p>
+          <button>
+            <img src="./images/start.jpg" alt="Start a new game" />
+          </button>
+        </p>
+      </div>
+      <div><p>CPU's game wins</p></div>
+    </div>
+    <div id="section-result">
+      <p>Outcome of the Game or round played message with score</p>
+    </div>
+    <div id="section-playground">
+      <div class="option-div">
+        <div class="button-option">
+          <button><img src="./images/rock.png" alt="Rock" /></button>
+        </div>
+        <div class="button-option">
+          <button><img src="./images/paper.png" alt="Paper" /></button>
+        </div>
+        <div class="button-option">
+          <button><img src="./images/scissor.png" alt="Scissor" /></button>
+        </div>
+      </div>
+      <div class="player-div">
+        <div class="player-human">
+          <div class="human-name">
+            <p>Human player side</p>
+          </div>
+          <div class="human-score">
+            <p>Human round score counter</p>
+          </div>
+        </div>
+        <div class="player-cpu">
+          <div class="cpu-name">
+            <p>cpu player side</p>
+          </div>
+          <div class="cpu-score">
+            <p>cpu round score counter</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

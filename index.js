@@ -83,4 +83,12 @@ function playGame(round = 5) {
 }
 
 //Invoke playGame function
-playGame();
+// playGame();
+
+/*New Algo
+- display option button to user
+- user select one option first triggering cpu option
+- both options are compared to each other
+- player scores are updated under their names
+- first player with 5 round wins is declared winner
+*/
