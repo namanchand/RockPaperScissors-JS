@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: rgb(0, 0, 0);
+  /* color: rgb(255, 255, 255); */
+  /* background-color: #001f85; */
 }
 
 #section-welcome {
@@ -24,20 +25,21 @@
   align-items: center;
   gap: 120px;
   border: 1px solid black;
-  font-size: 32px;
+  font-size: 52px;
   margin-bottom: 12px;
+  font-weight: bolder;
 }
 
 #section-result {
   display: flex;
-  border: 1px solid black;
-  background-color: #24df33;
-  font-size: 32px;
+  background-color: #00fde8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 70px;
+  font-weight: bolder;
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding: 12px;
-  margin-bottom: 12px;
 }
 
 #section-playground {
@@ -52,11 +54,7 @@
   border: 2px, solid, black;
   justify-content: center;
   gap: 60px;
-}
-
-.button-option button {
-  border: 2px solid black;
-  border-radius: 100px;
+  margin-bottom: 12px;
 }
 
 .option-div img {
@@ -64,25 +62,35 @@
   border-radius: 100px;
 }
 
-.button-start img {
+.option-div button {
+  display: flex;
+  border: 2px solid black;
+  background: transparent;
+  border-radius: 100px;
+}
+
+.start-button-div img {
   width: 200px;
 }
 
-.button-start button {
-  border-radius: 10px;
+.start-button-div button {
   border: 0px;
-  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
 }
 .player-div {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
-  gap: 10px;
 }
 
 .player-human,
-.player-cpu {
+.player-cpu,
+.tie-counter,
+.tie-heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,16 +98,27 @@
   align-content: center;
   border: 2px solid black;
   text-align: center;
+  /* width: 400px; */
 }
 
 .human-name,
-.cpu-name {
+.cpu-name,
+.tie-heading {
   display: flex;
-  font-size: 30px;
+  justify-content: center;
+  font-size: 36px;
+  /* width: 400px; */
 }
 
 .human-score,
-.cpu-score {
+.cpu-score,
+.tie-counter{
   display: flex;
+  justify-content: center;
   font-size: 60px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  /* width: 400px; */
+
 }
