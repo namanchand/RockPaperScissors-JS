@@ -2,20 +2,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* color: rgb(255, 255, 255); */
-  /* background-color: #001f85; */
+  color: rgb(255, 255, 255);
+  background-color: #000000;
 }
 
 #section-welcome {
   display: flex;
-  border: 1px solid black;
   justify-content: center;
   align-content: center;
   align-items: center;
   font-weight: bolder;
   font-size: 50px;
   margin-bottom: 12px;
-  background-color: #afafaf;
 }
 
 #section-total-score {
@@ -23,19 +21,17 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  gap: 120px;
-  border: 1px solid black;
-  font-size: 52px;
+  gap: 80px;
+  font-size: 40px;
   margin-bottom: 12px;
   font-weight: bolder;
 }
 
 #section-result {
   display: flex;
-  background-color: #00fde8;
   padding-top: 20px;
   padding-bottom: 20px;
-  font-size: 70px;
+  font-size: 52px;
   font-weight: bolder;
   justify-content: center;
   align-content: center;
@@ -46,35 +42,40 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid black;
 }
 
-.option-div {
+.option-div-off,
+.option-div-on {
   display: flex;
-  border: 2px, solid, black;
   justify-content: center;
   gap: 60px;
+  margin-top: 20px;
   margin-bottom: 12px;
 }
 
-.option-div img {
-  width: 200px;
-  border-radius: 100px;
+.option-div-off img,
+.option-div-on img {
+  width: 160px;
+  border-radius: 80px;
 }
 
-.option-div button {
+.option-div-off button,
+.option-div-on button {
   display: flex;
-  border: 2px solid black;
+  border: 4px solid rgb(255, 1, 1);
   background: transparent;
   border-radius: 100px;
 }
 
-.start-button-div img {
-  width: 200px;
-}
-
-.start-button-div button {
-  border: 0px;
+.start-button-div-on button {
+  display: flex;
+  font-size: 40px;
+  padding: 12px;
+  font-weight: bold;
+  background-color:rgb(16, 187, 0);
+  border-radius: 12px;
+  text-wrap: nowrap;
+  
 }
 
 button:hover {
@@ -82,9 +83,11 @@ button:hover {
 }
 .player-div {
   display: flex;
-  justify-content: space-around;
+  justify-content:center;
   align-items: center;
   align-content: center;
+  gap: 60px;
+  margin-bottom: 16px;
 }
 
 .player-human,
@@ -96,7 +99,6 @@ button:hover {
   justify-content: center;
   align-items: center;
   align-content: center;
-  border: 2px solid black;
   text-align: center;
   /* width: 400px; */
 }
@@ -120,5 +122,4 @@ button:hover {
   padding-right: 50px;
   text-align: center;
   /* width: 400px; */
-
 }

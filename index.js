@@ -106,6 +106,66 @@
 */
 
 //-------------------------------------------------------------------Code refresh------------------------------------------//
+//---------- Storing all the elements to a variable -------//
+
+const welcomeElement = document.querySelector("#section-welcome");
+let gameWinsHumanElement = document.querySelector(".game-wins-human");
+let gameWinsCpuElement = document.querySelector(".game-wins-cpu");
+let resultElement = document.querySelector('#section-result')
+let startGameDivEl = document.querySelector(".start-button-div-on")
+let startGameButtonEl = document.querySelector(".start-button-div-on button")
+let inputButtonDiv = document.querySelector(".option-div-off")
+let inputButton = document.querySelectorAll(".option-div-off button")
+let humanChoiceElement = document.querySelector('.human-name')
+let humanScoreElement = document.querySelector('.human-score')
+let tieScoreElement = document.querySelector('.tie-counter')
+let cpuChoiceElement = document.querySelector('.cpu-name')
+let cpuScoreElement = document.querySelector('.cpu-score')
+
+//--------Setting score variables----------//
+let userScore = 0;
+let cpuScore = 0;
+let tieScore = 0;
+let userGameWins = 0;
+let cpuGameWins = 0;
+let userChoice = "";
+let cpuChoice = "";
+let switchEl = "";
+
+const option = [`ROCK`, `PAPER`, `SCISSOR`];
+
+//------------ Default Initializers---------//
+function defaultElements() {
+  gameWinsHumanElement.textContent = `Press Start`
+  gameWinsCpuElement.textContent = `Press Start`
+  humanChoiceElement.textContent = `Your Score`
+  cpuChoiceElement.textContent = `CPU Score`
+  humanScoreElement.textContent = 0
+  cpuScoreElement.textContent = 0
+  tieScoreElement.textContent = 0
+  userScore = 0
+  cpuScore = 0
+  tieScore = 0
+}
+
+defaultElements()
+
+
+//-------------function reset DOM elements and scores------------//
+function resetElements() {
+  humanScoreElement.textContent = 0
+  cpuScoreElement.textContent = 0
+  tieScoreElement.textContent = 0
+  humanChoiceElement.textContent = `Your Score`
+  cpuChoiceElement.textContent = `CPU Score`
+  gameWinsHumanElement.textContent = `Your Won ${userGameWins} Games`
+  gameWinsCpuElement.textContent = `CPU Won ${cpuGameWins} Games`
+  userScore = 0
+  cpuScore = 0
+  tieScore = 0
+}
+
+// while (userScore >= 5 || cpuScore >= 5) {
 
 //---------- function that generate random number and convert it to string -----------//
 function getCpuChoice() {
@@ -121,104 +181,102 @@ function getCpuChoice() {
   return choice;
 }
 
-//---------- Storing all the elements to a variable -------//
-const welcomeElement = document.querySelector("#section-welcome");
-let gameWinsHumanElement = document.querySelector(".game-wins-human");
-let gameWinsCpuElement = document.querySelector(".game-wins-cpu");
-let resultElement = document.querySelector('#section-result')
-let startGame = document.querySelector(".start-button-div button")
-let inputButton = document.querySelectorAll(".option-div button")
-const rockButton = document.querySelector(".button-rock")
-const paperButton = document.querySelector(".button-paper")
-const scissorButton = document.querySelector(".button-scissor")
-let humanChoiceElement = document.querySelector('.human-name')
-let humanScoreElement = document.querySelector('.human-score')
-let tieScoreElement = document.querySelector('.tie-counter')
-let cpuChoiceElement = document.querySelector('.cpu-name')
-let cpuScoreElement = document.querySelector('.cpu-score')
+//----------------------GameLogic------------------//
+function gameLogic() {
 
-//------------ Default Initializers---------//
-humanScoreElement.textContent = 0
-cpuScoreElement.textContent = 0
-humanChoiceElement.textContent = `Your Score`
-cpuChoiceElement.textContent = `CPU Score`
-gameWinsHumanElement.textContent = `Press Start`
-gameWinsCpuElement.textContent = `Press Start`
+  if (inputButtonDiv.className === 'option-div-on') {
+
+    if (userChoice === 'ROCK' && cpuChoice === 'SCISSOR' ||
+      userChoice === 'PAPER' && cpuChoice === 'ROCK' ||
+      userChoice === 'SCISSOR' && cpuChoice === 'PAPER') {
+      userScore++
+      resultElement.textContent = `You Won this round!!! ${String.fromCodePoint(0x1F642)}`
+      resultElement.style.backgroundColor = "#2ee866"
+      humanScoreElement.textContent = userScore
+
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
+
+    } else if (userChoice === cpuChoice) {
+      tieScore++
+      resultElement.textContent = `Nobody Wins. It's a Tie!!! ${String.fromCodePoint(0x1F610)}`
+      resultElement.style.backgroundColor = "#fcba03"
+      tieScoreElement.textContent = tieScore
+
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
+
+    } else {
+      cpuScore++
+      resultElement.textContent = `You Lost this round!!! ${String.fromCodePoint(0x1F641)}`
+      resultElement.style.backgroundColor = "#ed4e4e"
+      cpuScoreElement.textContent = cpuScore
+
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
+
+    }
+
+    if (userScore / 5 === 1) {
+      userGameWins++
+      resultElement.textContent = `You Won the Game! Congratulation!!! ${String.fromCodePoint(0x1F3C6)}`
+      resultElement.style.backgroundColor = "#039900"
+      gameWinsHumanElement.textContent = `Your Won ${userGameWins} Games`
 
 
+      inputButtonDiv.classList.replace('option-div-on', 'option-div-off')
 
-startGame.addEventListener('click', function () {
-  //--------Setting score variables----------//
-  let userScore = 0;
-  let cpuScore = 0;
-  let tieScore = 0;
-  let userGameWins = 0
-  let cpuGameWins = 0
+      console.log(inputButtonDiv.className);
+
+      resetElements()
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
+
+    } else if (cpuScore / 5 === 1) {
+      cpuGameWins++
+      resultElement.textContent = `CPU Won the Game! Try Again!!! ${String.fromCodePoint(0x1F494)}`
+      resultElement.style.backgroundColor = "#cf0000"
+      gameWinsCpuElement.textContent = `CPU Won ${cpuGameWins} Games`
+
+      inputButtonDiv.classList.replace('option-div-on', 'option-div-off')
+
+      console.log(inputButtonDiv.className);
 
 
-  gameWinsHumanElement.textContent = `Choose One!`
-  gameWinsCpuElement.textContent = `Choose One!`
+      resetElements()
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
+    }
+  } else return defaultElements()
+}
 
-  //--------Mapping choices to RPS button with event listner function---------//
-  const option = ["ROCK", "PAPER", "SCISSOR"];
+//--------------Generate Choices-----------------//
+const playRound = function () {
 
   for (let i = 0; i < inputButton.length; i++) {
-    let userChoice = "";
-    let cpuChoice = "";
-    //-----------Storing users choice and random cpu choice to empty variables---------//
-    inputButton[i].addEventListener('click', () => {
+    inputButton[i].addEventListener('click', function () {
+
       userChoice = option[i]
       cpuChoice = getCpuChoice()
-      //------------Updating Choice elements according to generated choice variables-------//
-      humanChoiceElement.textContent = `You Chose: ${userChoice}`
-      cpuChoiceElement.textContent = `CPU Chose: ${cpuChoice}`
 
-      //--------------Testing user and cpu choice------------//
-      if (userChoice === 'ROCK' && cpuChoice === 'SCISSOR' ||
-        userChoice === 'PAPER' && cpuChoice === 'ROCK' ||
-        userChoice === 'SCISSOR' && cpuChoice === 'PAPER') {
-        userScore++
-        resultElement.textContent = `You Won this round!!!`
-        resultElement.style.backgroundColor = "#2ee866"
-        humanScoreElement.textContent = userScore
+      console.log(inputButtonDiv.className);
 
-      } else if (userChoice === cpuChoice) {
-        tieScore++
-        resultElement.textContent = `Nobody Wins. It's a Tie!!!`
-        resultElement.style.backgroundColor = "#fcba03"
-        tieScoreElement.textContent = tieScore
+      gameWinsHumanElement.textContent = `You Chose ${userChoice}`
+      gameWinsCpuElement.textContent = `CPU Chose ${cpuChoice}`
 
-      } else {
-        cpuScore++
-        resultElement.textContent = `You Lost this round!!!`
-        resultElement.style.backgroundColor = "#ed4e4e"
-        cpuScoreElement.textContent = cpuScore
-      }
+      gameLogic()
+      console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
 
-      // if (userScore / 5 === 1) {
-      //   userGameWins++
-      //   resultElement.textContent = `You Won the Game! Congratulation!!!`
-      //   resultElement.style.backgroundColor = "#039900"
-      //   gameWinsHumanElement.textContent = `Your Won ${userGameWins} Games`
-      //   humanScoreElement.textContent = 0
-      //   cpuScoreElement.textContent = 0
-      //   tieScoreElement.textContent = 0
-      //   humanChoiceElement.textContent = `Your Score`
-      //   cpuChoiceElement.textContent = `CPU Score`
-      //   userScore = cpuScore = tieScore = 0
-
-      // } else if (cpuScore / 5 === 1) {
-      //   cpuGameWins++
-      //   resultElement.textContent = `CPU Won the Game! Try Again!!!`
-      //   resultElement.style.backgroundColor = "#cf0000"
-      //   gameWinsCpuElement.textContent = `CPU Won ${cpuGameWins} Games`
-      //   humanScoreElement.textContent = 0
-      //   cpuScoreElement.textContent = 0
-      //   tieScoreElement.textContent = 0
-      //   humanChoiceElement.textContent = `Your Score`
-      //   cpuChoiceElement.textContent = `CPU Score`
-      //   userScore = cpuScore = tieScore = 0
-      // }
     })
   }
+}
+
+startGameButtonEl.addEventListener('click', () => {
+
+  resetElements()
+
+  inputButtonDiv.classList.replace('option-div-off', 'option-div-on')
+  // switchEl = document.querySelectorAll(".option-div-on button")
+
+  console.log(inputButtonDiv.className);
+
+  playRound()
+  console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
 })
+
+console.log(userChoice, cpuChoice, userScore, tieScore, cpuScore, userGameWins, cpuGameWins);
