@@ -5,12 +5,6 @@
     <title>Welcome!</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
 
@@ -24,7 +18,7 @@
 
     <div id="section-playground">
 
-      <div class="option-div-off">
+      <div class="option-div">
         <button>
           <img src="./images/rock.png" alt="Rock" />
         </button>
@@ -37,17 +31,17 @@
       </div>
       
       <div class="player-div">
-        <div class="player-human">
-          <p class="human-name">Human player side</p>
-          <p class="human-score">Human round score counter</p>
+        <div class="player-user">
+          <p class="user-choice">YOU</p>
+          <p class="user-score">0</p>
         </div>
         <div class="tie-div">
           <p class="tie-heading">Ties</p>
           <p class="tie-counter">0</p>
         </div>
         <div class="player-cpu">
-          <p class="cpu-name">cpu player side</p>
-          <p class="cpu-score">cpu round score counter</p>
+          <p class="cpu-choice">CPU</p>
+          <p class="cpu-score">0</p>
         </div>
       </div>
 
@@ -55,13 +49,14 @@
 
     <div id="section-total-score">
 
-      <div class="game-wins-human"><p>Your wins &#128073;</p>
+      <div class="user-game-wins"><p>Press Start &#128073;</p>
       </div>
-      <div class="start-button-div-on">
+      <div class="start-button-div">
         <button class="start-button">Start Game</button>
       </div>
-      <div class="game-wins-cpu"><p>&#128072;CPU wins</p>
+      <div class="cpu-game-wins"><p>&#128072; Press Start</p>
       </div>
     </div>
-  </body>
+
+  </body> 
 </html>

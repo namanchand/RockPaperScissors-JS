@@ -27,16 +27,6 @@
   font-weight: bolder;
 }
 
-#section-result {
-  display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 52px;
-  font-weight: bolder;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
 
 #section-playground {
   display: flex;
@@ -44,8 +34,7 @@
   justify-content: space-between;
 }
 
-.option-div-off,
-.option-div-on {
+.option-div {
   display: flex;
   justify-content: center;
   gap: 60px;
@@ -53,21 +42,19 @@
   margin-bottom: 12px;
 }
 
-.option-div-off img,
-.option-div-on img {
+.option-div img {
   width: 160px;
   border-radius: 80px;
 }
 
-.option-div-off button,
-.option-div-on button {
+.option-div button {
   display: flex;
   border: 4px solid rgb(255, 1, 1);
   background: transparent;
   border-radius: 100px;
 }
 
-.start-button-div-on button {
+.start-button-div button {
   display: flex;
   font-size: 40px;
   padding: 12px;
@@ -75,7 +62,6 @@
   background-color:rgb(16, 187, 0);
   border-radius: 12px;
   text-wrap: nowrap;
-  
 }
 
 button:hover {
@@ -90,7 +76,7 @@ button:hover {
   margin-bottom: 16px;
 }
 
-.player-human,
+.player-user,
 .player-cpu,
 .tie-counter,
 .tie-heading {
@@ -100,19 +86,17 @@ button:hover {
   align-items: center;
   align-content: center;
   text-align: center;
-  /* width: 400px; */
 }
 
-.human-name,
-.cpu-name,
+.user-choice,
+.cpu-choice,
 .tie-heading {
   display: flex;
   justify-content: center;
   font-size: 36px;
-  /* width: 400px; */
 }
 
-.human-score,
+.user-score,
 .cpu-score,
 .tie-counter{
   display: flex;
@@ -121,5 +105,16 @@ button:hover {
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
-  /* width: 400px; */
+}
+
+
+#section-result {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 52px;
+  font-weight: bolder;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
