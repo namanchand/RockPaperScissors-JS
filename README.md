@@ -1,3 +1,4 @@
 # RockPaperScissors-JS
-
-To play type playGame(no. of rounds) function in console of your broswer.
+The UI Project for RPS.
+To play the game press start button.
+the player who wins 5 rounds first will be declared game winner.
